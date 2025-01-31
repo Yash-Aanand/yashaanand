@@ -5,7 +5,6 @@ import profilePic from './images/profilepic.jpg';
 import hashchainpic from './images/hashchain.png';
 import clusterHexpic from './images/clusterHex.png';
 
-
 // Fixed projects data
 const projects = [
   {
@@ -34,6 +33,19 @@ function App() {
   });
   const [showScrollButton, setShowScrollButton] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
+
+  // Handle scroll button visibility based on scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollButton(window.scrollY > 300); // Show the button when scrolled more than 300px
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -83,117 +95,118 @@ function App() {
       <div className="content-wrapper">
         {/* Navigation Bar */}
         <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-900/80 backdrop-blur-md border-b border-gray-800">
-          <div className="max-w-4xl mx-auto px-4 py-4">
-            <div className="flex justify-between items-center">
-              <button
-                onClick={() => scrollToSection('topsec')}
-                className="text-gray-300 hover:text-blue-400 transition-colors transform hover:scale-105 transition-transform duration-300"
-              >
-                <h1 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
-                  Yash Aanand
-                </h1>
-              </button>
+  <div className="w-full px-4 py-4">
+    <div className="flex justify-between items-left">
+      <button
+        onClick={() => scrollToSection('topsec')}
+        className="text-gray-300 hover:text-blue-400 transition-colors transform hover:scale-105 transition-transform duration-300"
+      >
+        <h1 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
+          Yash Aanand
+        </h1>
+      </button>
 
-              {/* Mobile menu button */}
-              <div className="sm:hidden">
-                <button
-                  type="button"
-                  onClick={() => setShowMenu(!showMenu)}
-                  className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none"
-                  aria-controls="mobile-menu"
-                  aria-expanded={showMenu}
-                >
-                  <span className="absolute -inset-0.5"></span>
-                  <span className="sr-only">Open main menu</span>
-                  {/* Icon when menu is closed */}
-                  <svg
-                    className={`${showMenu ? 'hidden' : 'block'} h-6 w-6`}
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth="1.5"
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                  </svg>
-                  {/* Icon when menu is open */}
-                  <svg
-                    className={`${showMenu ? 'block' : 'hidden'} h-6 w-6`}
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth="1.5"
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
-                  </svg>
-                </button>
-              </div>
+      {/* Mobile menu button */}
+      <div className="sm:hidden">
+        <button
+          type="button"
+          onClick={() => setShowMenu(!showMenu)}
+          className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none"
+          aria-controls="mobile-menu"
+          aria-expanded={showMenu}
+        >
+          <span className="absolute -inset-0.5"></span>
+          <span className="sr-only">Open main menu</span>
+          {/* Icon when menu is closed */}
+          <svg
+            className={`${showMenu ? 'hidden' : 'block'} h-6 w-6`}
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="1.5"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+          {/* Icon when menu is open */}
+          <svg
+            className={`${showMenu ? 'block' : 'hidden'} h-6 w-6`}
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="1.5"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
 
-              {/* Desktop menu */}
-              <div className="hidden sm:flex gap-6">
-                <button
-                  onClick={() => scrollToSection('about')}
-                  className="text-gray-300 hover:text-blue-400 transition-colors"
-                >
-                  About
-                </button>
-                <button
-                  onClick={() => scrollToSection('projects')}
-                  className="text-gray-300 hover:text-blue-400 transition-colors"
-                >
-                  Projects
-                </button>
-                <button
-                  onClick={() => scrollToSection('resume')}
-                  className="text-gray-300 hover:text-blue-400 transition-colors"
-                >
-                  Resume
-                </button>
-              </div>
-            </div>
-          </div>
+      {/* Desktop menu */}
+      <div className="hidden sm:flex gap-6">
+        <button
+          onClick={() => scrollToSection('about')}
+          className="text-gray-300 hover:text-blue-400 transition-colors"
+        >
+          About
+        </button>
+        <button
+          onClick={() => scrollToSection('projects')}
+          className="text-gray-300 hover:text-blue-400 transition-colors"
+        >
+          Projects
+        </button>
+        <button
+          onClick={() => scrollToSection('resume')}
+          className="text-gray-300 hover:text-blue-400 transition-colors"
+        >
+          Resume
+        </button>
+      </div>
+    </div>
+  </div>
 
-          {/* Mobile menu */}
-          <AnimatePresence>
-            {showMenu && (
-              <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="sm:hidden origin-top bg-gray-900/90 backdrop-blur-md shadow-xl rounded-lg"
+  {/* Mobile menu */}
+  <AnimatePresence>
+    {showMenu && (
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -20 }}
+        transition={{ duration: 0.4, ease: 'easeInOut' }}
+        className="sm:hidden origin-top bg-gray-900/70 backdrop-blur-md shadow-xl rounded-lg"
+      >
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          exit="hidden"
+          variants={{
+            visible: { transition: { staggerChildren: 0.2 } },
+            hidden: {},
+          }}
+          className="space-y-2 px-4 py-3"
+        >
+          {['About', 'Projects', 'Resume'].map((item, index) => (
+            <motion.button
+              key={index}
+              variants={{
+                hidden: { opacity: 0, x: -20 },
+                visible: { opacity: 1, x: 0 },
+              }}
+              transition={{ duration: 0.4, ease: 'easeInOut' }}
+              onClick={() => scrollToSection(item.toLowerCase())}
+              className="block w-full text-center rounded-lg px-4 py-3 text-lg font-semibold text-gray-300 hover:bg-gradient-to-r from-purple-600 to-blue-500 hover:text-white transform hover:scale-105 hover:shadow-2xl hover:ring-2 hover:ring-blue-500 transition-all duration-300"
             >
-              <motion.div
-                initial="hidden"
-                animate="visible"
-                exit="hidden"
-                variants={{
-                  visible: { transition: { staggerChildren: 0.2 } },
-                  hidden: {},
-                }}
-                className="space-y-2 px-4 py-3"
-              >
-                {["About", "Projects", "Resume"].map((item, index) => (
-                  <motion.button
-                    key={index}
-                    variants={{
-                      hidden: { opacity: 0, x: -20 },
-                      visible: { opacity: 1, x: 0 },
-                    }}
-                    transition={{ duration: 0.4, ease: "easeInOut" }}
-                    className="block w-full text-center rounded-lg px-4 py-3 text-lg font-semibold text-gray-300 hover:bg-gradient-to-r from-purple-600 to-blue-500 hover:text-white transform hover:scale-105 hover:shadow-2xl hover:ring-2 hover:ring-blue-500 transition-all duration-300"
-                  >
-                    {item}
-                  </motion.button>
-                ))}
-              </motion.div>
-            </motion.div>
-            
-            
-            )}
-          </AnimatePresence>
-        </nav>
+              {item}
+            </motion.button>
+          ))}
+        </motion.div>
+      </motion.div>
+    )}
+  </AnimatePresence>
+</nav>
+
+
 
         {/* Hero Section */}
         <section id="topsec" className="min-h-screen relative flex items-center justify-center">
@@ -387,16 +400,40 @@ function App() {
         </footer>
 
         {/* Scroll to Top Button */}
-        <div className="fixed bottom-6 right-6 z-50">
-          <a
-            href="#top" 
-          className="p-3 rounded-full bg-gradient-to-r from-blue-500 via-purple-600 to-pink-500 hover:scale-110 transition-transform duration-300 animate-gradient-rotation shadow-lg text-white inline-flex items-center justify-center"
-        >
-          <svg enable-background="new 0 0 32 32" height="24px" id="Layer_1" version="1.1" viewBox="0 0 32 32" width="24px" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
-            <path d="M18.221,7.206l9.585,9.585c0.879,0.879,0.879,2.317,0,3.195l-0.8,0.801c-0.877,0.878-2.316,0.878-3.194,0l-7.315-7.315l-7.315,7.315c-0.878,0.878-2.317,0.878-3.194,0l-0.8-0.801c-0.879-0.878-0.879-2.316,0-3.195l9.587-9.585c0.471-0.472,1.103-0.682,1.723-0.647C17.115,6.524,17.748,6.734,18.221,7.206z" fill="#515151"/>
-          </svg>
-        </a>
-      </div>
+        {showScrollButton && (
+         <motion.div
+         className="fixed bottom-6 right-6 z-50"
+         initial={{ opacity: 0, scale: 0.8 }} // Initial state: hidden and scaled down
+         animate={{
+           opacity: showScrollButton ? 1 : 0, // Animate opacity based on scroll position
+           scale: showScrollButton ? 1 : 0.8, // Smooth scale change when button appears
+         }}
+         transition={{
+           opacity: { duration: 0.3 },
+           scale: { duration: 0.3 }, // Adjust duration for smoothness
+         }}
+       >
+         <a
+           href="#top"
+           className="p-3 rounded-full bg-gradient-to-r from-blue-500 via-purple-600 to-pink-500 hover:scale-110 transition-transform duration-300 animate-gradient-rotation shadow-lg text-white inline-flex items-center justify-center"
+         >
+           <svg
+             enable-background="new 0 0 32 32"
+             height="24px"
+             id="Layer_1"
+             version="1.1"
+             viewBox="0 0 32 32"
+             width="24px"
+             xmlns="http://www.w3.org/2000/svg"
+             xmlnsXlink="http://www.w3.org/1999/xlink"
+           >
+             <path
+               d="M18.221,7.206l9.585,9.585c0.879,0.879,0.879,2.317,0,3.195l-0.8,0.801c-0.877,0.878-2.316,0.878-3.194,0l-7.315-7.315l-7.315,7.315c-0.878,0.878-2.317,0.878-3.194,0l-0.8-0.801c-0.879-0.878-0.879-2.316,0-3.195l9.587-9.585c0.471-0.472,1.103-0.682,1.723-0.647C17.115,6.524,17.748,6.734,18.221,7.206z"
+               fill="#515151"
+             />
+           </svg>
+         </a>
+       </motion.div>)}
 
 
 
