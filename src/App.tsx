@@ -55,8 +55,9 @@ function App() {
     return () => sections.forEach(section => observer.unobserve(section));
   }, []);
 
-  const scrollToSection = (id: string) => {
+  const scrollToSection = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    setShowMenu(false); // Close the mobile menu after clicking a link
   };
 
   return (
@@ -80,19 +81,56 @@ function App() {
 
       <div className="content-wrapper">
         {/* Navigation Bar */}
-        <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-900/80 backdrop-blur-md border-b border-gray-800 ">
+        <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-900/80 backdrop-blur-md border-b border-gray-800">
           <div className="max-w-4xl mx-auto px-4 py-4">
             <div className="flex justify-between items-center">
-            <button
-                  onClick={() => scrollToSection('topsec')}
-                  className="text-gray-300 hover:text-blue-400 transition-colors transform hover:scale-105 transition-transform duration-300"
-                >
-                  <h1 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
-                Yash Aanand
+              <button
+                onClick={() => scrollToSection('topsec')}
+                className="text-gray-300 hover:text-blue-400 transition-colors transform hover:scale-105 transition-transform duration-300"
+              >
+                <h1 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
+                  Yash Aanand
                 </h1>
+              </button>
+
+              {/* Mobile menu button */}
+              <div className="sm:hidden">
+                <button
+                  type="button"
+                  onClick={() => setShowMenu(!showMenu)}
+                  className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none"
+                  aria-controls="mobile-menu"
+                  aria-expanded={showMenu}
+                >
+                  <span className="absolute -inset-0.5"></span>
+                  <span className="sr-only">Open main menu</span>
+                  {/* Icon when menu is closed */}
+                  <svg
+                    className={`${showMenu ? 'hidden' : 'block'} h-6 w-6`}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                  </svg>
+                  {/* Icon when menu is open */}
+                  <svg
+                    className={`${showMenu ? 'block' : 'hidden'} h-6 w-6`}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+                  </svg>
                 </button>
-            
-              <div className="flex gap-6">
+              </div>
+
+              {/* Desktop menu */}
+              <div className="hidden sm:flex gap-6">
                 <button
                   onClick={() => scrollToSection('about')}
                   className="text-gray-300 hover:text-blue-400 transition-colors"
@@ -114,10 +152,36 @@ function App() {
               </div>
             </div>
           </div>
+
+          {/* Mobile menu */}
+          {showMenu && (
+            <div className="sm:hidden" id="mobile-menu">
+              <div className="space-y-1 px-2 pt-2 pb-3">
+                <button
+                  onClick={() => scrollToSection('about')}
+                  className="block w-full text-left rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                >
+                  About
+                </button>
+                <button
+                  onClick={() => scrollToSection('projects')}
+                  className="block w-full text-left rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                >
+                  Projects
+                </button>
+                <button
+                  onClick={() => scrollToSection('resume')}
+                  className="block w-full text-left rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                >
+                  Resume
+                </button>
+              </div>
+            </div>
+          )}
         </nav>
-        
+
         {/* Hero Section */}
-        <section id = 'topsec' className="min-h-screen relative flex items-center justify-center">
+        <section id="topsec" className="min-h-screen relative flex items-center justify-center">
           <div className="relative z-10 text-center px-4">
             <h1 className="text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
               Yash Aanand
@@ -144,8 +208,8 @@ function App() {
         </section>
 
         {/* About Section */}
-        <section 
-          id="about" 
+        <section
+          id="about"
           className={`section-overlay py-20 px-4 transition-opacity duration-1000 ${
             isVisible.about ? 'opacity-100' : 'opacity-0'
           }`}
@@ -181,8 +245,8 @@ function App() {
         </section>
 
         {/* Projects Section */}
-        <section 
-          id="projects" 
+        <section
+          id="projects"
           className={`section-overlay py-20 px-4 transition-opacity duration-1000 ${
             isVisible.projects ? 'opacity-100' : 'opacity-0'
           }`}
@@ -191,7 +255,7 @@ function App() {
             <h2 className="text-5xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400 animate-gradient-rotation">Projects</h2>
             <div className="grid md:grid-cols-2 gap-6 ">
               {projects.map(project => (
-                <div 
+                <div
                   key={project.id}
                   className="group bg-gray-800/90 backdrop-blur-sm rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                 >
@@ -208,8 +272,8 @@ function App() {
                     <p className="text-gray-300 mb-4">{project.description}</p>
                     <div className="flex flex-wrap gap-2 mb-4">
                       {project.tags.map(tag => (
-                        <span 
-                          key={tag} 
+                        <span
+                          key={tag}
                           className="px-3 py-1 bg-blue-600/20 text-blue-400 rounded-full text-sm"
                         >
                           {tag}
@@ -230,9 +294,8 @@ function App() {
         </section>
 
         {/* Resume Section */}
-        {/* Resume Section */}
-        <section 
-          id="resume" 
+        <section
+          id="resume"
           className={`section-overlay py-20 px-4 transition-opacity duration-1000 ${isVisible.resume ? 'opacity-100' : 'opacity-0'}`}
         >
           <div className="max-w-4xl mx-auto">
@@ -246,7 +309,7 @@ function App() {
                     <h4 className="text-xl font-semibold text-white hover:text-blue-500 transition-colors cursor-pointer">Software Engineering Intern - Parkquility</h4>
                     <p className="text-gray-400">Aug. 2023 – Sep. 2023 | Bangalore, IN</p>
                     <div className="text-gray-300 mt-2">
-                      <ul className="list-disc list-inside space-y-2"> 
+                      <ul className="list-disc list-inside space-y-2">
                         <li>Developed dynamic and responsive web applications using React, HTML/CSS, JavaScript, and Node.js, improving user engagement by 18%</li>
                         <li>Integrated RESTful APIs and optimized data pipelines with Express.js, reducing response times by 25%</li>
                         <li>Designed a real-time monitoring dashboard with MongoDB (Mongoose) and Flask, streamlining internal communication and improving collaboration efficiency</li>
@@ -259,11 +322,11 @@ function App() {
                     <h4 className="text-xl font-semibold text-white hover:text-blue-500 transition-colors cursor-pointer">Head of Technology - National Public School RNR</h4>
                     <p className="text-gray-400">Jul. 2022 - Aug. 2023 | Bangalore, IN</p>
                     <div className="text-gray-300 mt-2">
-                      <ul className="list-disc list-inside space-y-2"> 
-                        <li>Guided the design, development, and deployment of the Model United Nations (MUN) website using React, Tailwind, and Node.js, serving 500+ participants</li> 
-                        <li>Integrated MySQL for efficient event updates and account management systems, ensuring real-time data synchronization</li> 
-                        <li>Utilized Tailwind CSS for UI design and Node.js for backend functionality and user management</li> 
-                        <li>Developed an isolated dashboard using React, Tailwind CSS, and Node.js with MySQL for managing registrations, schedules, and real-time notifications</li> 
+                      <ul className="list-disc list-inside space-y-2">
+                        <li>Guided the design, development, and deployment of the Model United Nations (MUN) website using React, Tailwind, and Node.js, serving 500+ participants</li>
+                        <li>Integrated MySQL for efficient event updates and account management systems, ensuring real-time data synchronization</li>
+                        <li>Utilized Tailwind CSS for UI design and Node.js for backend functionality and user management</li>
+                        <li>Developed an isolated dashboard using React, Tailwind CSS, and Node.js with MySQL for managing registrations, schedules, and real-time notifications</li>
                       </ul>
                     </div>
                   </div>
@@ -280,8 +343,7 @@ function App() {
                   </div>
                   <div className="skill-item bg-gray-800/90 backdrop-blur-sm p-6 rounded-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                     <p className="text-xl font-bold text-blue-400 hover:text-blue-300 cursor-pointer transition-colors">Frameworks</p>
-                    <p className="text-gray-300">React, Node.js, Express.js, Next.js, Flask, Tailwind, FastAPI
-                    </p>
+                    <p className="text-gray-300">React, Node.js, Express.js, Next.js, Flask, Tailwind, FastAPI</p>
                   </div>
                   <div className="skill-item bg-gray-800/90 backdrop-blur-sm p-6 rounded-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                     <p className="text-xl font-bold text-blue-400 hover:text-blue-300 cursor-pointer transition-colors">Tools</p>
@@ -304,18 +366,15 @@ function App() {
           </div>
         </section>
 
-
-
         {/* Footer */}
         <footer className="section-overlay bg-gray-900/90 backdrop-blur-sm py-8 px-4 text-center">
           <p className="text-gray-400">© 2024 Yash Aanand. All rights reserved.</p>
         </footer>
 
         {/* Scroll to Top Button */}
-        {/* Scroll Up Button */}
         <div className="fixed bottom-6 right-6 z-50">
-        <a 
-          href="#top" 
+          <a
+            href="#top" 
           className="p-3 rounded-full bg-gradient-to-r from-blue-500 via-purple-600 to-pink-500 hover:scale-110 transition-transform duration-300 animate-gradient-rotation shadow-lg text-white inline-flex items-center justify-center"
         >
           <svg enable-background="new 0 0 32 32" height="24px" id="Layer_1" version="1.1" viewBox="0 0 32 32" width="24px" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
