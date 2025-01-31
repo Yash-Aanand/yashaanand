@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Github, Linkedin, Mail, FileText, ChevronDown, ExternalLink } from 'lucide-react';
+import { motion, AnimatePresence } from "framer-motion";
 import profilePic from './images/profilepic.jpg';
 import hashchainpic from './images/hashchain.png';
 import clusterHexpic from './images/clusterHex.png';
@@ -154,30 +155,44 @@ function App() {
           </div>
 
           {/* Mobile menu */}
-          {showMenu && (
-            <div className="sm:hidden" id="mobile-menu">
-              <div className="space-y-1 px-2 pt-2 pb-3">
-                <button
-                  onClick={() => scrollToSection('about')}
-                  className="block w-full text-left rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-                >
-                  About
-                </button>
-                <button
-                  onClick={() => scrollToSection('projects')}
-                  className="block w-full text-left rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-                >
-                  Projects
-                </button>
-                <button
-                  onClick={() => scrollToSection('resume')}
-                  className="block w-full text-left rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-                >
-                  Resume
-                </button>
-              </div>
-            </div>
-          )}
+          <AnimatePresence>
+            {showMenu && (
+              <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+              className="sm:hidden origin-top bg-gray-900/90 backdrop-blur-md shadow-xl rounded-lg"
+            >
+              <motion.div
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+                variants={{
+                  visible: { transition: { staggerChildren: 0.2 } },
+                  hidden: {},
+                }}
+                className="space-y-2 px-4 py-3"
+              >
+                {["About", "Projects", "Resume"].map((item, index) => (
+                  <motion.button
+                    key={index}
+                    variants={{
+                      hidden: { opacity: 0, x: -20 },
+                      visible: { opacity: 1, x: 0 },
+                    }}
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
+                    className="block w-full text-center rounded-lg px-4 py-3 text-lg font-semibold text-gray-300 hover:bg-gradient-to-r from-purple-600 to-blue-500 hover:text-white transform hover:scale-105 hover:shadow-2xl hover:ring-2 hover:ring-blue-500 transition-all duration-300"
+                  >
+                    {item}
+                  </motion.button>
+                ))}
+              </motion.div>
+            </motion.div>
+            
+            
+            )}
+          </AnimatePresence>
         </nav>
 
         {/* Hero Section */}
