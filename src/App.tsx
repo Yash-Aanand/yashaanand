@@ -102,7 +102,7 @@ function App() {
                 className="px-8 py-4 text-gray-300 hover:text-blue-400 transition-colors transform hover:scale-105 transition-transform duration-300"
               >
                 <h1 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
-                  Y
+                  Yash Aanand
                 </h1>
               </button>
 
