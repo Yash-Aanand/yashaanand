@@ -5,12 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "start": "react-scripts start"
+    "start": "react-scripts start",
+    "build": "react-scripts build"
   },
   "dependencies": {
     "framer-motion": "^12.0.6",
@@ -36,5 +36,5 @@
     "typescript-eslint": "^8.3.0",
     "vite": "^5.4.2"
   },
-  "homepage": "https://yash-aanand.github.io/yashaanand/"
+  "homepage": "https://yash-aanand.github.io/yashaanand"
 }
