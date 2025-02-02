@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import profilePic from './images/profilepic.jpg';
 import hashchainpic from './images/hashchain.png';
 import clusterHexpic from './images/clusterHex.png';
+import resume from './Yash_Resume.pdf';
 
 // Fixed projects data
 const projects = [
@@ -385,7 +386,7 @@ function App() {
               {/* Download Resume Button */}
               <div className="mt-8 text-center">
                 <a
-                  href="src\Yash_Resume.pdf"
+                  href= {resume}
                   download="Yash_Resume.pdf" // Add the download attribute
                   className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300"
                 >
