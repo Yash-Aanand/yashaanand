@@ -211,9 +211,10 @@ function App() {
         {/* Hero Section */}
         <section id="topsec" className="min-h-screen relative flex items-center justify-center">
           <div className="relative z-10 text-center px-4">
-            <h1 className="text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
-              Yash Aanand
-            </h1>
+          <h1 className="text-5xl sm:text-6xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
+            Yash Aanand
+          </h1>
+
             <p className="text-2xl text-gray-300 mb-8">Software Developer</p>
             <div className="flex justify-center gap-6 mb-12">
               <a href="https://github.com/Yash-Aanand" className="hover:text-blue-400 transition-colors">
@@ -364,7 +365,7 @@ function App() {
               {/* Skills Section */}
               <div className="space-y-6">
                 <h3 className="text-2xl font-bold text-blue-400 hover:text-blue-300 cursor-pointer transition-colors">Skills</h3>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   <div className="skill-item bg-gray-800/90 backdrop-blur-sm p-6 rounded-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                     <p className="text-xl font-bold text-blue-400 hover:text-blue-300 cursor-pointer transition-colors">Languages</p>
                     <p className="text-gray-300"> C/C++, Java, JavaScript, Python, MongoDB (Mongoose), HTML/CSS, TypeScript, Bash, SQL</p>
@@ -379,6 +380,7 @@ function App() {
                   </div>
                 </div>
               </div>
+
 
               {/* Download Resume Button */}
               <div className="mt-8 text-center">
