@@ -14,12 +14,12 @@ const AboutSection: React.FC<AboutSectionProps> = ({ isVisible }) => {
       }`}
     >
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-5xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400 animate-gradient-rotation">
+        <h2 className="text-5xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 animate-gradient-rotation">
           About Me
         </h2>
         <div className="grid md:grid-cols-2 gap-12 items-center bg-gray-900/90 backdrop-blur-sm p-8 rounded-lg shadow-xl space-y-12">
           <div className="relative">
-            <div className="absolute -inset-1 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 blur opacity-75"></div>
+            <div className="absolute -inset-1 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 animate-gradient-rotation blur opacity-75"></div>
             <img
               src={profilePic}
               alt="Profile"

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 
+import SplashScreen from "./components/SplashScreen";
 import hashchainpic from "./images/hashchain.png";
 import clusterHexpic from "./images/clusterHex.png";
 import mainbg from "./images/mainbg.png";
@@ -9,10 +10,8 @@ import mainbg from "./images/mainbg.png";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import AboutSection from "./components/AboutSection";
-// import ProjectsSection from './components/ProjectsSection';
 import ResumeSection from "./components/ResumeSection";
 import Footer from "./components/Footer";
-// import { projects } from './data/projects'; // Move projects data to a separate file
 
 const projects = [
   {
@@ -36,28 +35,35 @@ const projects = [
 ];
 
 function App() {
+  const [showSplash, setShowSplash] = useState(true);
   const [isVisible, setIsVisible] = useState({
     about: false,
     resume: false,
     projects: false,
   });
   const [showScrollButton, setShowScrollButton] = useState(false);
-  const [showMenu, setShowMenu] = useState(false); 
+  const [showMenu, setShowMenu] = useState(false);
 
-  // Handle scroll button visibility based on scroll position
   useEffect(() => {
-    const handleScroll = () => {
-      setShowScrollButton(window.scrollY > 300); // Show the button when scrolled more than 300px
-    };
+    const timer = setTimeout(() => {
+      setShowSplash(false);
+    }, 5000);
 
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollButton(window.scrollY > 300);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    if (showSplash) return; // Wait until splash screen is gone
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -76,12 +82,16 @@ function App() {
     sections.forEach((section) => observer.observe(section));
 
     return () => sections.forEach((section) => observer.unobserve(section));
-  }, []);
+  }, [showSplash]); // Depend on showSplash
 
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-    setShowMenu(false); // Close the mobile menu after clicking a link
+    setShowMenu(false);
   };
+
+  if (showSplash) {
+    return <SplashScreen />;
+  }
 
   return (
     <div className="bg-gray-900 text-gray-100 min-h-screen">
