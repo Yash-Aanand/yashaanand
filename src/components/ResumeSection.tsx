@@ -2,7 +2,8 @@ import React from "react";
 import { FileText } from "lucide-react";
 
 import resume from "../Yash_Resume.pdf";
-import SpotlightCard from './SpotlightCard';
+import SpotlightCard from "./SpotlightCard";
+
 
 interface ResumeSectionProps {
   isVisible: boolean;
@@ -17,7 +18,7 @@ const ResumeSection: React.FC<ResumeSectionProps> = ({ isVisible }) => {
       }`}
     >
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-5xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400 animate-gradient-rotation">
+        <h2 className="text-5xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 animate-gradient-rotation">
           Resume
         </h2>
         <div className="bg-gray-900/90 backdrop-blur-sm p-8 rounded-lg shadow-xl space-y-12">
@@ -58,7 +59,9 @@ const ResumeSection: React.FC<ResumeSectionProps> = ({ isVisible }) => {
                   </ul>
                 </div>
               </div>
-              <hr></hr>
+
+              <hr className="h-1 bg-gradient-to-r from-blue-500 to-purple-500 animate-gradient-rotation border-none rounded-full"></hr>
+
               <div className="experience-item">
                 <h4 className="text-xl font-semibold text-white hover:text-blue-500 transition-colors cursor-pointer">
                   Head of Technology - National Public School RNR
@@ -100,7 +103,10 @@ const ResumeSection: React.FC<ResumeSectionProps> = ({ isVisible }) => {
             </h3>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <SpotlightCard className="custom-spotlight-card bg-opacity-0 skill-item bg-gradient-to-r from-purple-700 to-blue-700  backdrop-blur-sm p-6 rounded-lg hover:shadow-x2 transition-all duration-300 hover:-translate-y-2" spotlightColor="rgba(214, 237, 240, 0.2)">
+              <SpotlightCard
+                className="custom-spotlight-card bg-opacity-0 skill-item bg-gradient-to-r from-purple-700 to-blue-700  backdrop-blur-sm p-6 rounded-lg hover:shadow-x2 transition-all duration-300 hover:-translate-y-2"
+                spotlightColor="rgba(214, 237, 240, 0.2)"
+              >
                 <p className="text-xl font-bold text-blue-400 hover:text-blue-300 cursor-pointer transition-colors">
                   Languages
                 </p>
@@ -110,21 +116,23 @@ const ResumeSection: React.FC<ResumeSectionProps> = ({ isVisible }) => {
                   TypeScript, Bash, SQL
                 </p>
               </SpotlightCard>
-              
-              
-              <SpotlightCard className="custom-spotlight-card skill-item bg-gradient-to-r from-purple-700 to-blue-700  backdrop-blur-sm p-6 rounded-lg hover:shadow-x2 transition-all duration-300 hover:-translate-y-2" spotlightColor="rgba(214, 237, 240, 0.2)">
-                
-              <p className="text-xl font-bold text-blue-400 hover:text-blue-300 cursor-pointer transition-colors">
-                    Frameworks
-                  </p>
-                  <p className="text-gray-300">
-                    React, Node.js, Express.js, Next.js, Flask, Tailwind, FastAPI
-                  </p>
-                
+
+              <SpotlightCard
+                className="custom-spotlight-card skill-item bg-gradient-to-r from-purple-700 to-blue-700  backdrop-blur-sm p-6 rounded-lg hover:shadow-x2 transition-all duration-300 hover:-translate-y-2"
+                spotlightColor="rgba(214, 237, 240, 0.2)"
+              >
+                <p className="text-xl font-bold text-blue-400 hover:text-blue-300 cursor-pointer transition-colors">
+                  Frameworks
+                </p>
+                <p className="text-gray-300">
+                  React, Node.js, Express.js, Next.js, Flask, Tailwind, FastAPI
+                </p>
               </SpotlightCard>
 
-
-              <SpotlightCard className="custom-spotlight-card skill-item bg-gradient-to-r from-purple-700 to-blue-700  backdrop-blur-sm p-6 rounded-lg hover:shadow-x2 transition-all duration-300 hover:-translate-y-2" spotlightColor="rgba(214, 237, 240, 0.2)">
+              <SpotlightCard
+                className="custom-spotlight-card skill-item bg-gradient-to-r from-purple-700 to-blue-700  backdrop-blur-sm p-6 rounded-lg hover:shadow-x2 transition-all duration-300 hover:-translate-y-2"
+                spotlightColor="rgba(214, 237, 240, 0.2)"
+              >
                 <p className="text-xl font-bold text-blue-400 hover:text-blue-300 cursor-pointer transition-colors">
                   Tools
                 </p>
@@ -133,8 +141,6 @@ const ResumeSection: React.FC<ResumeSectionProps> = ({ isVisible }) => {
                   PyCharm, IntelliJ, AWS
                 </p>
               </SpotlightCard>
-
-
             </div>
           </div>
 

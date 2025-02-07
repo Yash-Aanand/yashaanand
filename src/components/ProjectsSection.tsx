@@ -27,7 +27,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({
       }`}
     >
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-5xl font-bold pb-10 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400 animate-gradient-rotation ">
+        <h2 className="text-5xl font-bold pb-10 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 animate-gradient-rotation ">
           Projects
         </h2>
         <div className="bg-gray-900/90 backdrop-blur-sm p-8 rounded-lg shadow-xl space-y-12">

@@ -22,7 +22,6 @@ body {
   }
 }
 
-
 /* Multiple gradient animations at different speeds */
 @keyframes gradient-slow {
   0% {
@@ -191,7 +190,6 @@ body {
   background-size: 400% 400%;
   animation: gradient-rotation 6s ease infinite;
 }
-
 
 @keyframes slide {
   0% {
