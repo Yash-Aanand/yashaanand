@@ -6,6 +6,8 @@ import SplashScreen from "./components/SplashScreen";
 import hashchainpic from "./images/hashchain.png";
 import clusterHexpic from "./images/clusterHex.png";
 import mainbg from "./images/mainbg.png";
+import taxbotpic from "./images/taxbotpic.png";
+import gamelibpic from "./images/gameLib.png";
 
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
@@ -29,8 +31,33 @@ const projects = [
     description:
       "A blockchain-based supply chain system ensuring transparency, traceability, and security using custom blockchain and SHA256 encryption.",
     image: hashchainpic,
-    tags: ["React.js ", "Node.js", "MySQL", "Blockchain", "SHA256"],
+    tags: ["React.js", "Node.js", "MySQL", "Blockchain", "SHA256"],
     link: "https://github.com/Yash-Aanand/HashChain",
+  },
+  {
+    id: 3,
+    title: "Taxbot",
+    description:
+      "Developed an AI-powered chatbot using OpenAI Functions and Vercel AI SDK, enabling real-time AI streaming and multimodal responses for tax-related queries.",
+    image: taxbotpic, // Replace with the correct image URL or variable for the Taxbot project
+    tags: ["AI", "Machine Learning", "Chatbot", "Vercel", "Next.js"],
+    link: "https://github.com/Yash-Aanand/Taxbot", // Replace with the correct link to your Taxbot project
+  },
+  {
+    id: 4,
+    title: "GameLib",
+    description:
+      "A game library management system built to track, organize, and recommend games based on user preferences and play history.",
+    image: gamelibpic, // Replace with the correct image URL or variable for the GameLib project
+    tags: [
+      "JavaScript",
+      "Node.js",
+      "MongoDB",
+      "Express.js",
+      "API",
+      "Game Development",
+    ],
+    link: "https://github.com/Yash-Aanand/GameLib", // Replace with the correct link to your GameLib project
   },
 ];
 
@@ -42,7 +69,7 @@ function App() {
     projects: false,
   });
   const [showScrollButton, setShowScrollButton] = useState(false);
-  const [showMenu, setShowMenu] = useState(false);
+  // Removed unused showMenu state
   const [fadeIn, setFadeIn] = useState(false);
 
   useEffect(() => {
@@ -90,7 +117,7 @@ function App() {
 
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-    setShowMenu(false);
+    // Removed unused setShowMenu call
   };
 
   if (showSplash) {
