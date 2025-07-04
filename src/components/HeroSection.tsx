@@ -52,7 +52,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ scrollToSection }) => {
             <Github size={24} />
           </a>
           <a
-            href="https://www.linkedin.com/in/yash-aanand-35192b273/"
+            href="https://www.linkedin.com/in/Yash-Aanand/"
             className="hover:text-blue-400 transition-colors"
           >
             <Linkedin size={24} />
