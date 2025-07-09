@@ -8,6 +8,7 @@ import clusterHexpic from "./images/clusterHex.png";
 import mainbg from "./images/mainbg.png";
 import taxbotpic from "./images/taxbotpic.png";
 import gamelibpic from "./images/gameLib.png";
+import VisuaReader from "./images/VisuaReader.png";
 
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
@@ -18,6 +19,15 @@ import Footer from "./components/Footer";
 const projects = [
   {
     id: 1,
+    title: "Taxbot",
+    description:
+      "AI-powered chatbot using OpenAI Functions and Vercel AI SDK for real-time tax query responses with streaming and multimodal capabilities.",
+    image: taxbotpic,
+    tags: ["AI", "Machine Learning", "Chatbot", "Vercel", "Next.js"],
+    link: "https://github.com/Yash-Aanand/Taxbot",
+  },
+  {
+    id: 2,
     title: "ClusterHex",
     description:
       "A full-stack location review app with secure authentication, session management, and real-time map functionality.",
@@ -26,7 +36,7 @@ const projects = [
     link: "https://github.com/Yash-Aanand",
   },
   {
-    id: 2,
+    id: 3,
     title: "HashChain",
     description:
       "A blockchain-based supply chain system ensuring transparency, traceability, and security using custom blockchain and SHA256 encryption.",
@@ -35,20 +45,20 @@ const projects = [
     link: "https://github.com/Yash-Aanand/HashChain",
   },
   {
-    id: 3,
-    title: "Taxbot",
+    id: 4,
+    title: "VisuaReader",
     description:
-      "Developed an AI-powered chatbot using OpenAI Functions and Vercel AI SDK, enabling real-time AI streaming and multimodal responses for tax-related queries.",
-    image: taxbotpic, // Replace with the correct image URL or variable for the Taxbot project
-    tags: ["AI", "Machine Learning", "Chatbot", "Vercel", "Next.js"],
-    link: "https://github.com/Yash-Aanand/Taxbot", // Replace with the correct link to your Taxbot project
+      "Hands-free document reader using OpenCV and Mediapipe to detect blinks and enable navigation for motor-impaired users.",
+    image: VisuaReader, // Replace with your actual VisuaReader image variable or path
+    tags: ["Python", "Mediapipe", "OpenCV", "React", "FastAPI", "Electron"],
+    link: "https://github.com/Yash-Aanand/VisuaReader",
   },
   {
-    id: 4,
+    id: 5,
     title: "GameLib",
     description:
-      "A game library management system built to track, organize, and recommend games based on user preferences and play history.",
-    image: gamelibpic, // Replace with the correct image URL or variable for the GameLib project
+      "A game library management system to track, organize, and recommend games based on user preferences and history.",
+    image: gamelibpic,
     tags: [
       "JavaScript",
       "Node.js",
@@ -57,7 +67,7 @@ const projects = [
       "API",
       "Game Development",
     ],
-    link: "https://github.com/Yash-Aanand/GameLib", // Replace with the correct link to your GameLib project
+    link: "https://github.com/Yash-Aanand/GameLib",
   },
 ];
 
