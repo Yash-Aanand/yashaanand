@@ -4,7 +4,6 @@ import { FileText } from "lucide-react";
 import resume from "../Yash_Resume.pdf";
 import SpotlightCard from "./SpotlightCard";
 
-
 interface ResumeSectionProps {
   isVisible: boolean;
 }
@@ -145,7 +144,16 @@ const ResumeSection: React.FC<ResumeSectionProps> = ({ isVisible }) => {
           </div>
 
           {/* Download Resume Button */}
-          <div className="mt-8 text-center">
+          <div className="mt-8 text-center flex-wrap flex justify-center gap-4">
+            <a
+              href={resume}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300"
+            >
+              <FileText size={20} />
+              View Full Resume
+            </a>
             <a
               href={resume}
               download="Yash_Resume.pdf" // Add the download attribute
