@@ -118,43 +118,56 @@ const ResumeSection: React.FC<ResumeSectionProps> = ({ isVisible }) => {
               Skills
             </h3>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <SpotlightCard
-                className="custom-spotlight-card bg-opacity-0 skill-item bg-gradient-to-r from-purple-700 to-blue-700  backdrop-blur-sm p-6 rounded-lg hover:shadow-x2 transition-all duration-300 hover:-translate-y-2"
+                className="custom-spotlight-card bg-opacity-0 skill-item bg-gradient-to-r from-purple-700 to-blue-700 backdrop-blur-sm p-6 rounded-lg hover:shadow-x2 transition-all duration-300 hover:-translate-y-2"
                 spotlightColor="rgba(214, 237, 240, 0.2)"
               >
                 <p className="text-xl font-bold text-blue-400 hover:text-blue-300 cursor-pointer transition-colors">
                   Languages
                 </p>
                 <p className="text-gray-300">
-                  {" "}
-                  C/C++, Java, JavaScript, Python, MongoDB (Mongoose), HTML/CSS,
-                  TypeScript, Bash, SQL
+                  Python, TypeScript, JavaScript, SQL, C, C++, Java, Go, HTML,
+                  CSS
                 </p>
               </SpotlightCard>
 
               <SpotlightCard
-                className="custom-spotlight-card skill-item bg-gradient-to-r from-purple-700 to-blue-700  backdrop-blur-sm p-6 rounded-lg hover:shadow-x2 transition-all duration-300 hover:-translate-y-2"
+                className="custom-spotlight-card skill-item bg-gradient-to-r from-purple-700 to-blue-700 backdrop-blur-sm p-6 rounded-lg hover:shadow-x2 transition-all duration-300 hover:-translate-y-2"
                 spotlightColor="rgba(214, 237, 240, 0.2)"
               >
                 <p className="text-xl font-bold text-blue-400 hover:text-blue-300 cursor-pointer transition-colors">
                   Frameworks
                 </p>
                 <p className="text-gray-300">
-                  React, Node.js, Express.js, Next.js, Flask, Tailwind, FastAPI
+                  React, Node.js, Next.js, Express.js, FastAPI, Flask, .NET,
+                  Tailwind
                 </p>
               </SpotlightCard>
 
               <SpotlightCard
-                className="custom-spotlight-card skill-item bg-gradient-to-r from-purple-700 to-blue-700  backdrop-blur-sm p-6 rounded-lg hover:shadow-x2 transition-all duration-300 hover:-translate-y-2"
+                className="custom-spotlight-card skill-item bg-gradient-to-r from-purple-700 to-blue-700 backdrop-blur-sm p-6 rounded-lg hover:shadow-x2 transition-all duration-300 hover:-translate-y-2"
                 spotlightColor="rgba(214, 237, 240, 0.2)"
               >
                 <p className="text-xl font-bold text-blue-400 hover:text-blue-300 cursor-pointer transition-colors">
-                  Tools
+                  Tools & Platforms
                 </p>
                 <p className="text-gray-300">
-                  Git, Docker, Google Cloud Platform, VS Code, Visual Studio,
-                  PyCharm, IntelliJ, AWS
+                  Git, Docker, GitHub Actions, AWS EC2, GCP, Vercel, Heroku, VS
+                  Code
+                </p>
+              </SpotlightCard>
+
+              <SpotlightCard
+                className="custom-spotlight-card skill-item bg-gradient-to-r from-purple-700 to-blue-700 backdrop-blur-sm p-6 rounded-lg hover:shadow-x2 transition-all duration-300 hover:-translate-y-2"
+                spotlightColor="rgba(214, 237, 240, 0.2)"
+              >
+                <p className="text-xl font-bold text-blue-400 hover:text-blue-300 cursor-pointer transition-colors">
+                  Libraries
+                </p>
+                <p className="text-gray-300">
+                  OpenCV, Mediapipe, TensorFlow, pandas, scikit-learn, Vercel AI
+                  SDK, Mongoose, SHA256
                 </p>
               </SpotlightCard>
             </div>
