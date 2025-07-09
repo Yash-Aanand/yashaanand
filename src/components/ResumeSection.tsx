@@ -29,7 +29,38 @@ const ResumeSection: React.FC<ResumeSectionProps> = ({ isVisible }) => {
             <div className="space-y-6">
               <div className="experience-item">
                 <h4 className="text-xl font-semibold text-white hover:text-blue-500 transition-colors cursor-pointer">
-                  Software Engineering Intern - Parkquility
+                  Software Developer Intern - Micromatic Grinding Technologies
+                </h4>
+                <p className="text-gray-400">
+                  May 2025 – Aug. 2025 | Bangalore, IN
+                </p>
+                <div className="text-gray-300 mt-2">
+                  <ul className="list-disc list-inside space-y-2">
+                    <li>
+                      Reduced licensing costs by 85% by replacing legacy CNC
+                      interface with a custom Windows-based HMI
+                    </li>
+                    <li>
+                      Achieved &lt;10ms latency via real-time CNC machine
+                      communication using Python and C++
+                    </li>
+                    <li>
+                      Scaled UI to 40+ production screens simulating end-to-end
+                      grinding workflows across machine types
+                    </li>
+                    <li>
+                      Delivered a robust full-stack system with CI/CD pipelines,
+                      removing dependency on legacy controllers
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <hr className="h-1 bg-gradient-to-r from-blue-500 to-purple-500 animate-gradient-rotation border-none rounded-full" />
+
+              <div className="experience-item">
+                <h4 className="text-xl font-semibold text-white hover:text-blue-500 transition-colors cursor-pointer">
+                  Software Engineer Intern - Parkquility
                 </h4>
                 <p className="text-gray-400">
                   Aug. 2023 – Sep. 2023 | Bangalore, IN
@@ -37,57 +68,43 @@ const ResumeSection: React.FC<ResumeSectionProps> = ({ isVisible }) => {
                 <div className="text-gray-300 mt-2">
                   <ul className="list-disc list-inside space-y-2">
                     <li>
-                      Developed dynamic and responsive web applications using
-                      React, HTML/CSS, JavaScript, and Node.js, improving user
-                      engagement by 18%
+                      Shipped full-stack features with React, Java, Flask, and
+                      MongoDB to accelerate client deliverables
                     </li>
                     <li>
-                      Integrated RESTful APIs and optimized data pipelines with
-                      Express.js, reducing response times by 25%
+                      Optimized Express.js and Java APIs, reducing production
+                      response latency by 25%
                     </li>
                     <li>
-                      Designed a real-time monitoring dashboard with MongoDB
-                      (Mongoose) and Flask, streamlining internal communication
-                      and improving collaboration efficiency
-                    </li>
-                    <li>
-                      Refactored legacy codebases to adopt TypeScript, and
-                      containerized applications with Docker while automating
-                      deployment pipelines using Git, enhancing scalability
+                      Containerized services with Docker, migrated legacy JS to
+                      TypeScript, and deployed via GitHub Actions
                     </li>
                   </ul>
                 </div>
               </div>
 
-              <hr className="h-1 bg-gradient-to-r from-blue-500 to-purple-500 animate-gradient-rotation border-none rounded-full"></hr>
+              <hr className="h-1 bg-gradient-to-r from-blue-500 to-purple-500 animate-gradient-rotation border-none rounded-full" />
 
               <div className="experience-item">
                 <h4 className="text-xl font-semibold text-white hover:text-blue-500 transition-colors cursor-pointer">
                   Head of Technology - National Public School RNR
                 </h4>
                 <p className="text-gray-400">
-                  Jul. 2022 - Aug. 2023 | Bangalore, IN
+                  Jul. 2022 – Aug. 2023 | Bangalore, IN
                 </p>
                 <div className="text-gray-300 mt-2">
                   <ul className="list-disc list-inside space-y-2">
                     <li>
-                      Guided the design, development, and deployment of the
-                      Model United Nations (MUN) website using React, Tailwind,
-                      and Node.js, serving 500+ participants
+                      Designed and launched a full-stack MUN platform for 500+
+                      users with real-time scheduling and updates
                     </li>
                     <li>
-                      Integrated MySQL for efficient event updates and account
-                      management systems, ensuring real-time data
-                      synchronization
+                      Built a registration dashboard used across 5 departments
+                      to track 1,000+ entries and manage event logistics
                     </li>
                     <li>
-                      Utilized Tailwind CSS for UI design and Node.js for
-                      backend functionality and user management
-                    </li>
-                    <li>
-                      Developed an isolated dashboard using React, Tailwind CSS,
-                      and Node.js with MySQL for managing registrations,
-                      schedules, and real-time notifications
+                      Automated data flow between registrants, organizers, and
+                      dashboard using MySQL and backend scripts
                     </li>
                   </ul>
                 </div>
