@@ -1,7 +1,7 @@
 import React from "react";
 import { FileText } from "lucide-react";
 
-import resume from "../Yash_Resume.pdf";
+import resume from "../Yash_Aanand_Resume.pdf";
 import SpotlightCard from "./SpotlightCard";
 
 interface ResumeSectionProps {
